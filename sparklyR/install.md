@@ -12,3 +12,8 @@ In part iii you can  login and install manually if you want, depending on how ho
 Install and example from AWS: https://aws.amazon.com/blogs/big-data/running-sparklyr-rstudios-r-interface-to-spark-on-amazon-emr/
 
 RStudio Examples: http://spark.rstudio.com/dplyr/
+
+## Resource Manager
+To access the Hadoop resource manager and monitory the environement you would want to go to the following URL (Make sure the port is open on your security group)
+
+http://<master-node-host>:8088/
