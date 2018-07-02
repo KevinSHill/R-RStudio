@@ -16,4 +16,4 @@ RStudio Examples: http://spark.rstudio.com/dplyr/
 ## Resource Manager
 To access the Hadoop resource manager and monitory the environement you would want to go to the following URL (Make sure the port is open on your security group)
 
-http://<master-node-host>:8088/
+http://[master-node-host]:8088/
