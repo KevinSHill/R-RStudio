@@ -1,0 +1,11 @@
+# Allows you to write in memory to S3
+
+putS3 <- function(dataFile,objectPath,s3Bucket,key,secret){
+  
+  zz <- rawConnection(raw(0), "r+")
+  write.csv(dataFile, zz)
+  
+  aws.s3::put_object(file = rawConnectionValue(zz), object = eval(objectPath), bucket = eval(s3Bucket),key = eval(key), secret = eval(secret))
+  close(zz)
+  
+}
