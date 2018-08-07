@@ -28,3 +28,17 @@ dbConnection <- function(queryString){
   
   return(output)
 }
+
+#Use sprintf to write a query with dynamic variables
+query <- sprintf('
+                       SELECT
+                          *
+                       FROM
+                          %s
+                      ;
+                       ',
+                   "tableName"
+  )
+  
+  #call the function with the dynamic query
+  data <- dbConnection(query)
