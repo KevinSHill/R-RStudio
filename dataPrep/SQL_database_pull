@@ -1,0 +1,30 @@
+
+#Set options for the connection string
+options(mysql = list(
+  "host" = "hostName",
+  "port" = 3306,
+  "user" = "userName",
+  "password" = "password",
+  "db" =  "database",
+  "driver" = "MySQL"
+))
+
+
+dbConnection <- function(queryString){
+  
+  db <- DBI::dbConnect( RMySQL::MySQL()
+                   ,dbname = options()$mysql$db
+                   ,host = options()$mysql$host
+                   ,port = options()$mysql$port
+                   ,user = options()$mysql$user
+                   ,password = options()$mysql$password
+  )
+  
+  
+  output <- DBI::dbGetQuery(db, queryString) 
+ 
+  DBI::dbDisconnect(db) #Closes the current db
+  lapply( DBI::dbListConnections( DBI::dbDriver( drv = options()$mysql$driver)), DBI::dbDisconnect) #Closes all mySQL connections
+  
+  return(output)
+}
