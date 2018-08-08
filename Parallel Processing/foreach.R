@@ -1,5 +1,7 @@
 library(foreach)
 
+`%dopar%` <- foreach::`%dopar%` #use without loading the full package
+
 (cores <- parallel::detectCores())
 cl <- parallel::makeCluster(cores-1)
 doParallel::registerDoParallel(cl)
