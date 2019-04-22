@@ -1,0 +1,5 @@
+# Turn the data into numeric values
+timeSeriesInputs.cor <- as.data.frame(lapply(timeSeriesInputs[c(2:ncol(timeSeriesInputs))], as.numeric))
+
+# Use the corrplot package to view the correlation
+corrplot::corrplot(cor(timeSeriesInputs.cor), method = "circle")
