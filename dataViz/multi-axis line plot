@@ -1,0 +1,13 @@
+ay <- list(
+  tickfont = list(color = "red"),
+  overlaying = "y",
+  side = "right",
+  title = "second y axis"
+)
+plotly::plot_ly(data=timeSeriesInputs) %>%
+  plotly::add_lines(x = ~metric_date, y = ~totalViews, name = "Views") %>%
+  plotly::add_lines(x = ~metric_date, y = ~totalinvDaysAfter, name = "DaysAfter", yaxis = "y2") %>%
+  plotly::layout(
+    title = "Double Y Axis", yaxis2 = ay,
+    xaxis = list(title="x")
+  )
